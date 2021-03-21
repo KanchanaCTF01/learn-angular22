@@ -1,0 +1,22 @@
+<Div class = "container">
+    <p>My Tasks </p>
+    <app-task *ngFor="let task of tasks" [taskObj] = "task" (deleteTask)="deleteTask($event)" (taskSelected)="selectedTask($event)"></app-task>
+
+
+<div class = "new-task">
+    
+    <p>Add Task</p>
+    <div>
+        Name: <input [(ngModel)]="taskName" type="text">
+    </div>
+    <div>
+        Description: <input [(ngModel)]="taskDescription" type="text">
+    </div>
+    <button (click)="addTask()"> Add </button>
+</div>
+<div class="task-detail" *ngIf="taskSelect">
+    <h4>Task:{{ taskSelect.name}}  </h4>
+    <b>Description:</b> {{ taskSelect.description}} 
+
+</div>
+</Div>
